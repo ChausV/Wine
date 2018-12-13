@@ -12,8 +12,10 @@ public:
 	Wine();
 	Wine(const char* l, int y);
 	Wine(const char* l, int y, const int yr[], const int bot[]);
+	Wine(const char* l, int y, const int yr[], const int bot[], const int age[]);
 
 	void getBottles();
+	void getAging();
 	const std::string & label() const;
 	int sum() const;
 	void show() const;
@@ -21,11 +23,11 @@ public:
 private:
 	using ArrayIntT = std::valarray<int>;
 	using PairArrayT = std::pair<ArrayIntT, ArrayIntT>;
-	using VectorIntT = std::vector<int>;
 
 	std::string name;
 	PairArrayT quantity;
-	VectorIntT age;
+	// nice class member for storing wine's age
+	ArrayIntT age;
 };
 
 #endif // WINE_H

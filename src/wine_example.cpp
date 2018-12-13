@@ -7,7 +7,7 @@ int main() {
     using std::cout;
     using std::endl;
 
-    cout << " ------------------- Example ------------------- " << endl;
+    cout << " ---------------- Example based ---------------- " << endl;
 
     cout << "Enter name of wine: ";
     char lab[50] = "";
@@ -33,9 +33,15 @@ int main() {
     Wine holding(lab, yrs);
     holding.getBottles();
     cout << endl;
-    holding.show(); // print wine info
+    holding.show();
     cout << "Total bottles for " << holding.label() << ": " << holding.sum() << endl;
     cout << "---------------" << endl << endl;
+
+    holding.getAging();
+    holding.show();
+    cout << "Total bottles for " << holding.label() << ": " << holding.sum() << endl;
+    cout << "---------------" << endl << endl;
+
 
     constexpr int kYears = 3;
     int y[kYears] = { 1993, 1995, 1998 };
@@ -48,7 +54,7 @@ int main() {
     cout << "Total bottles for " << more.label() << ": " << more.sum() << endl;
     cout << endl;
 
-    cout << " ----------------- Additional ---------------- " << endl;
+    cout << " ------------------ Additional ----------------- " << endl;
     try {
         Wine hol(NULL, yrs);
     } catch (std::exception & exc) {
@@ -60,6 +66,11 @@ int main() {
         std::cerr << "Exception: " << exc.what() << endl;
     }
     cout << endl;
+
+    int a[kYears] = { 6, 12, 18 };
+    Wine riesling("Riesling", kYears, y, b, a);
+    riesling.show();
+    cout << "Total bottles for " << riesling.label() << ": " << riesling.sum() << endl;
 
     Wine noname;
     noname.show();
